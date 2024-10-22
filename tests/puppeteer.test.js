@@ -1,3 +1,4 @@
+// Test of Puppeteer itself
 const puppeteer = require('puppeteer');
 
 describe('Puppeteer with Jest', () => {
@@ -19,11 +20,13 @@ describe('Puppeteer with Jest', () => {
     expect(title).toBe('Example Domain');
   });
 
-  it ('should visit gnuterrypratchett.com and check for the header', async () => {
+  // This relies on the h1 tag being present on the page, which is not
+  // guaranteed, but has been consistent for years.
+  it ('should visit gnuterrypratchett.com and check for the h1', async () => {
     await page.goto('http://www.gnuterrypratchett.com');
-    const header = await page.evaluate(() => {
+    const h1 = await page.evaluate(() => {
       return document.querySelector('h1').innerText;
     });
-    expect(header).toBe('GNU Terry Pratchett');
+    expect(h1).toBe('GNU Terry Pratchett');
   });
 });
