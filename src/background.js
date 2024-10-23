@@ -122,3 +122,5 @@ chrome.tabs.onRemoved.addListener(function (tabId) {
 //     }
 //     return Object.keys(set);
 // }
+
+module.exports = { getClacks, extinguishClacksIcon, illuminateClacksIcon };
